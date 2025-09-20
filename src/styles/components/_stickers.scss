@@ -1,0 +1,402 @@
+.stickers {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.sticker {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    opacity: 0;
+    animation: fadeInScale 0.6s ease-out forwards;
+    
+    &:hover {
+        transform: scale(1.1) rotate(5deg);
+    }
+
+    // Stagger delays for each sticker
+    &:nth-child(1) { animation-delay: 0.7s; }
+    &:nth-child(2) { animation-delay: 0.9s; }
+    &:nth-child(3) { animation-delay: 1.1s; }
+    &:nth-child(4) { animation-delay: 1.3s; }
+    &:nth-child(5) { animation-delay: 1.5s; }
+    &:nth-child(6) { animation-delay: 1.7s; }
+    &:nth-child(7) { animation-delay: 1.9s; }
+    &:nth-child(8) { animation-delay: 2.1s; }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+    }
+}
+
+// Fade in with scale animation for stickers
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+}
+
+// Predefined positions for easy placement
+.sticker--top-left {
+    top: 5%;
+    left: 5%;
+}
+
+.sticker--top-right {
+    top: 5%;
+    right: 5%;
+}
+
+.sticker--bottom-left {
+    bottom: 10%;
+    left: 5%;
+}
+
+.sticker--bottom-right {
+    bottom: 10%;
+    right: 5%;
+}
+
+.sticker--center-left {
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+}
+
+.sticker--center-right {
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+// Size variants
+.sticker--small {
+    width: 80px;
+    height: 80px;
+
+    @media (max-width: 768px) {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+.sticker--medium {
+    width: 150px;
+    height: 150px;
+
+    @media (max-width: 768px) {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.sticker--large {
+    width: 250px;
+    height: 250px;
+
+    @media (max-width: 768px) {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+// Custom positioning helpers - use inline styles for precise positioning
+// Example: <div class="sticker sticker--medium" style="top: 20%; left: 30%;">
+
+// Rotation variants - will be applied after fade in
+.sticker--rotate-left {
+    animation-name: fadeInScale, rotateToLeft;
+    animation-duration: 0.6s, 0.4s;
+    animation-delay: inherit, 0.6s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: ease-out, ease-out;
+}
+
+.sticker--rotate-right {
+    animation-name: fadeInScale, rotateToRight;
+    animation-duration: 0.6s, 0.4s;
+    animation-delay: inherit, 0.6s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: ease-out, ease-out;
+}
+
+.sticker--rotate-slight {
+    animation-name: fadeInScale, rotateToSlight;
+    animation-duration: 0.6s, 0.4s;
+    animation-delay: inherit, 0.6s;
+    animation-fill-mode: forwards, forwards;
+    animation-timing-function: ease-out, ease-out;
+}
+
+@keyframes rotateToLeft {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-15deg); }
+}
+
+@keyframes rotateToRight {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(15deg); }
+}
+
+@keyframes rotateToSlight {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(5deg); }
+}
+
+// Animation variants - these will loop after initial fade in
+.sticker--float {
+    &:not(.sticker--rotate-left):not(.sticker--rotate-right):not(.sticker--rotate-slight) {
+        animation: fadeInScale 0.6s ease-out forwards, floatNoRotate 6s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-left {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToLeft 0.4s 0.6s ease-out forwards, floatRotateLeft 6s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-right {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToRight 0.4s 0.6s ease-out forwards, floatRotateRight 6s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-slight {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToSlight 0.4s 0.6s ease-out forwards, floatRotateSlight 6s ease-in-out 1s infinite;
+    }
+}
+
+@keyframes floatNoRotate {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes floatRotateLeft {
+    0%, 100% {
+        transform: translateY(0) rotate(-15deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-10deg);
+    }
+}
+
+@keyframes floatRotateRight {
+    0%, 100% {
+        transform: translateY(0) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(20deg);
+    }
+}
+
+@keyframes floatRotateSlight {
+    0%, 100% {
+        transform: translateY(0) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(10deg);
+    }
+}
+
+.sticker--wiggle {
+    &:not(.sticker--rotate-left):not(.sticker--rotate-right):not(.sticker--rotate-slight) {
+        animation: fadeInScale 0.6s ease-out forwards, wiggleNoRotate 4s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-left {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToLeft 0.4s 0.6s ease-out forwards, wiggleRotateLeft 4s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-right {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToRight 0.4s 0.6s ease-out forwards, wiggleRotateRight 4s ease-in-out 1s infinite;
+    }
+    
+    &.sticker--rotate-slight {
+        animation: fadeInScale 0.6s ease-out forwards, rotateToSlight 0.4s 0.6s ease-out forwards, wiggleRotateSlight 4s ease-in-out 1s infinite;
+    }
+}
+
+@keyframes wiggleNoRotate {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes wiggleRotateLeft {
+    0%, 100% {
+        transform: rotate(-15deg);
+    }
+    25% {
+        transform: rotate(-20deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+}
+
+@keyframes wiggleRotateRight {
+    0%, 100% {
+        transform: rotate(15deg);
+    }
+    25% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes wiggleRotateSlight {
+    0%, 100% {
+        transform: rotate(5deg);
+    }
+    25% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+// Stop-motion animation effect
+.sticker--stop-motion {
+    animation: fadeInScale 0.6s ease-out forwards, stopMotion 3s ease-in-out 1s infinite;
+}
+
+@keyframes stopMotion {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    12.5% { transform: translate(2px, -1px) rotate(2deg); }
+    25% { transform: translate(-1px, 2px) rotate(-1deg); }
+    37.5% { transform: translate(1px, 1px) rotate(1deg); }
+    50% { transform: translate(-2px, -1px) rotate(-2deg); }
+    62.5% { transform: translate(1px, -2px) rotate(1deg); }
+    75% { transform: translate(-1px, 1px) rotate(-1deg); }
+    87.5% { transform: translate(2px, 1px) rotate(2deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+// Spinning animation effect
+.sticker--spin {
+    animation: fadeInScale 0.6s ease-out forwards, spin 4s linear 1s infinite;
+}
+
+.sticker--spin-slow {
+    animation: fadeInScale 0.6s ease-out forwards, spin 8s linear 1s infinite;
+}
+
+.sticker--spin-reverse {
+    animation: fadeInScale 0.6s ease-out forwards, spinReverse 4s linear 1s infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes spinReverse {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+// Wobble spin (stop-motion style spinning)
+.sticker--wobble-spin {
+    animation: fadeInScale 0.6s ease-out forwards, wobbleSpin 2s steps(8) 1s infinite;
+}
+
+@keyframes wobbleSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    12.5% { transform: rotate(45deg) scale(1.05); }
+    25% { transform: rotate(90deg) scale(1); }
+    37.5% { transform: rotate(135deg) scale(0.95); }
+    50% { transform: rotate(180deg) scale(1); }
+    62.5% { transform: rotate(225deg) scale(1.05); }
+    75% { transform: rotate(270deg) scale(1); }
+    87.5% { transform: rotate(315deg) scale(0.95); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+// Jittery stop-motion effect (more pronounced)
+.sticker--jitter {
+    animation: fadeInScale 0.6s ease-out forwards, jitter 1.5s steps(6) 1s infinite;
+}
+
+@keyframes jitter {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    16.67% { transform: translate(-3px, 2px) rotate(-3deg); }
+    33.33% { transform: translate(3px, -2px) rotate(3deg); }
+    50% { transform: translate(-2px, -3px) rotate(-2deg); }
+    66.67% { transform: translate(2px, 3px) rotate(2deg); }
+    83.33% { transform: translate(-3px, 1px) rotate(-3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+// Mobile adjustments
+@media (max-width: 768px) {
+    .sticker {
+        &:hover {
+            transform: scale(1.05) rotate(3deg);
+        }
+    }
+
+    // Adjust positions for mobile
+    .sticker--top-left,
+    .sticker--top-right {
+        top: 3%;
+    }
+
+    .sticker--bottom-left,
+    .sticker--bottom-right {
+        bottom: 5%;
+    }
+
+    .sticker--center-left,
+    .sticker--center-right {
+        display: none; // Hide center stickers on very small screens
+    }
+}
+
+@media (max-width: 480px) {
+    // Further reduce on very small screens
+    .sticker--large {
+        width: 100px;
+        height: 100px;
+    }
+
+    .sticker--medium {
+        width: 70px;
+        height: 70px;
+    }
+
+    .sticker--small {
+        width: 40px;
+        height: 40px;
+    }
+}
