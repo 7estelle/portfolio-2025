@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.svg-container {
+    margin: 20px 0;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Animation pour le tracé de base - UN PEU PLUS RAPIDE avec courbe naturelle */
+.draw-path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: draw 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Animation de délai pour créer un effet séquentiel - DÉLAIS VARIÉS */
+.delay-1 { animation-delay: 0.25s; }
+.delay-2 { animation-delay: 0.55s; }
+.delay-3 { animation-delay: 0.9s; }
+
+/* Animations stop-motion pour chaque trait - COURBES NATURELLES DIFFÉRENTES */
+.stop-motion-1 {
+    animation: draw 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards, stopMotion1 1.2s infinite steps(4, end);
+    animation-delay: 0s, 1.4s;
+}
+
+.stop-motion-2 {
+    animation: draw 1.4s cubic-bezier(0.33, 0.66, 0.66, 1) forwards, stopMotion2 1.5s infinite steps(3, end);
+    animation-delay: 0.25s, 1.65s;
+}
+
+.stop-motion-3 {
+    animation: draw 1.4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards, stopMotion3 1.8s infinite steps(4, end);
+    animation-delay: 0.55s, 1.95s;
+}
+
+.stop-motion-4 {
+    animation: draw 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) forwards, stopMotion4 2.1s infinite steps(3, end);
+    animation-delay: 0.9s, 2.3s;
+}
+
+/* Différentes animations de décalage pour chaque trait - PLUS FLAGRANTES */
+@keyframes stopMotion1 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(1.2px, -0.8px); }
+    50% { transform: translate(-0.9px, 1.1px); }
+    75% { transform: translate(1.0px, 0.7px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes stopMotion2 {
+    0% { transform: translate(0, 0); }
+    33.33% { transform: translate(-1.1px, 0.9px); }
+    66.66% { transform: translate(0.8px, -1.2px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes stopMotion3 {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(0.7px, 1.3px); }
+    50% { transform: translate(-1.3px, -0.6px); }
+    75% { transform: translate(1.1px, -0.9px); }
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes stopMotion4 {
+    0% { transform: translate(0, 0); }
+    33.33% { transform: translate(-0.8px, 1.4px); }
+    66.66% { transform: translate(1.2px, -0.7px); }
+    100% { transform: translate(0, 0); }
+}
+
+.controls {
+    margin: 20px 0;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #5a6fd8;
+}
+
+.code-example {
+    background: #2d3748;
+    color: #e2e8f0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 20px 0;
+    overflow-x: auto;
+}
+
+code {
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}

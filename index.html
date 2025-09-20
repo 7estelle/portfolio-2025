@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation SVG - Dessin à la main</title>
+    <!-- <link rel="stylesheet" href="src/styles/main.scss"> -->
+</head>
+<body>
+    <div class="container">
+        <h1>Animation SVG avec Effet Stop Motion</h1>
+        
+        <div class="svg-container">
+            <svg width="106" height="263" viewBox="0 0 106 263" xmlns="http://www.w3.org/2000/svg">
+                <!-- Premier trait vertical -->
+                <path class="draw-path stop-motion-1" 
+                      d="M21.9444 21.8736C21.4995 43.3356 20.1513 68.5724 20.1445 90.8702C20.1388 109.614 21.9173 143.42 22.8273 161.95C23.7373 180.479 24.1822 182.704 24.4114 184.962C24.6406 187.22 24.6406 189.444 24.6406 191.736" 
+                      stroke="#FF44B4" 
+                      stroke-width="5" 
+                      stroke-linecap="round"
+                      fill="none"/>
+                
+                <!-- Trait horizontal en bas à gauche -->
+                <path class="draw-path delay-1 stop-motion-2" 
+                      d="M24.6418 240.268C21.5142 239.824 14.3422 238.92 7.36567 241.826C5.57173 242.573 4.44699 244.286 3.53703 245.863C2.62706 247.44 2.18222 249.22 6.62427 250.137C11.0663 251.053 20.4087 251.053 34.0786 248.357" 
+                      stroke="#FF44B4" 
+                      stroke-width="5" 
+                      stroke-linecap="round"
+                      fill="none"/>
+                
+                <!-- Deuxième trait vertical -->
+                <path class="draw-path delay-2 stop-motion-3" 
+                      d="M71.8242 3C71.8242 3.88976 71.8242 4.77952 73.1588 35.7121C74.4934 66.6446 77.1627 127.593 78.7602 159.88C80.3577 192.168 80.8026 193.947 81.0318 196.421C81.261 198.895 81.261 202.009 81.261 205.217" 
+                      stroke="#FF44B4" 
+                      stroke-width="5" 
+                      stroke-linecap="round"
+                      fill="none"/>
+                
+                <!-- Trait courbe complexe -->
+                <path class="draw-path delay-3 stop-motion-4" 
+                      d="M89.3508 238.92C88.461 239.81 88.0026 242.493 89.3373 246.308C90.8926 250.754 98.3158 249.705 101.909 248.815C103.493 248.423 103.722 246.146 102.839 244.117C100.737 239.287 94.7702 236.682 88.2791 235.334C79.7338 233.56 72.742 236.211 69.8234 239.345C66.8762 242.51 67.7809 250.11 68.6706 257.073C69.0087 259.718 71.3399 260.032 73.3688 260.261C75.3977 260.49 77.6221 260.49 79.4353 259.823C81.2485 259.156 82.5832 257.821 83.9583 256.446" 
+                      stroke="#FF44B4" 
+                      stroke-width="5" 
+                      stroke-linecap="round"
+                      fill="none"/>
+            </svg>
+        </div>
+
+        <!-- <div class="controls">
+            <button onclick="restartAnimation()">Rejouer l'animation</button>
+        </div> -->
+
+        <div id="code-section" class="code-example" style="display: none;">
+            <h3>Animation finale - équilibre parfait :</h3>
+            <code>
+              /* Durée optimale : 1.4s par trait (vs 2s avant) */
+              .stop-motion-1 {
+                  /* Courbe douce et progressive mais plus dynamique */
+                  animation: draw 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+              }
+
+              /* Délais raccourcis mais toujours variés */
+              .delay-1 { animation-delay: 0.25s; }  /* Court */
+              .delay-2 { animation-delay: 0.55s; }  /* Moyen */  
+              .delay-3 { animation-delay: 0.9s; }   /* Naturel */
+                          </code>
+                          <h3>Timing final optimisé :</h3>
+                          <code>
+              /* TOTAL : 2.3s - Parfait équilibre vitesse/naturel */
+              Trait 1 : 0s → 1.4s      (1.4s, courbe douce)
+              Trait 2 : 0.25s → 1.65s  (1.4s, accélération différente) 
+              Trait 3 : 0.55s → 1.95s  (1.4s, courbe progressive)
+              Trait 4 : 0.9s → 2.3s    (1.4s, courbe fluide)
+
+              /* Stop-motion démarre dès 1.4s - Parfait ! */
+              /* Ni trop rapide, ni trop lent : ÉQUILIBRE IDÉAL */
+            </code>
+        </div>
+    </div>
+
+    <script type="module" src="src/js/main.js"></script>
+</body>
+</html>
