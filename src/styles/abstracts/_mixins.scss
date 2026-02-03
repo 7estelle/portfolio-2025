@@ -1,0 +1,48 @@
+/*
+    General mobile-first breakpoint mixin
+    Usage:
+        @include bp(sm) { ... }          // uses map value (a key from $breakpoints)
+        @include bp(800px) { ... }       // uses raw size (any valid CSS size (eg. 640px, 40rem))
+*/
+
+$breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+) !default;
+
+@mixin bp($key-or-size) {
+    // resolve from map if key exists, otherwise use provided value
+    $size: if(map-has-key($breakpoints, $key-or-size), map-get($breakpoints, $key-or-size), $key-or-size);
+
+    @if $size == null {
+        @warn "bp(): breakpoint `#{$key-or-size}` not found and no size provided.";
+        @content;
+    } @else {
+        @media (min-width: $size) {
+            @content;
+        }
+    }
+}
+
+/* Optional helper: run styles up to (but not including) a breakpoint (useful occasionally)
+     Note: subtracts 0.02px to avoid overlap when using integer pixel breakpoints.
+     Usage: @include bp-until(md) { ... }  -> max-width: 767.98px (if md is 768px)
+*/
+@mixin bp-until($key-or-size) {
+    $raw: if(map-has-key($breakpoints, $key-or-size), map-get($breakpoints, $key-or-size), $key-or-size);
+
+    @if $raw == null {
+        @warn "bp-until(): breakpoint `#{$key-or-size}` not found and no size provided.";
+        @content;
+    } @else {
+        // if raw has unit, subtract a tiny fraction to make max-width "up to but not including" the breakpoint
+        $adjusted: if(unit($raw) == "", $raw - 0.02px, $raw - 0.02px);
+        @media (max-width: $adjusted) {
+            @content;
+        }
+    }
+}

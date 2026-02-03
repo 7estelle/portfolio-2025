@@ -1,3 +1,5 @@
+@use "../shared" as *;
+
 .header {
     min-height: 100vh;
     display: flex;
@@ -14,20 +16,40 @@
         animation: fadeInUp 0.8s ease-out forwards;
     }
 
-    h1 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        animation-delay: 0.3s;
-    }
+    .title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: to-rem(48);
+    
+        &__name {
+            font-weight: 400;
+            background: linear-gradient(135deg, $color-dark 0%, $color-secondary 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.3s;
+        }
 
-    p {
-        font-size: 1.1rem;
-        color: #888;
-        animation-delay: 0.5s;
+        &__label {
+            margin-top: to-rem(-16);
+            letter-spacing: -4px;
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        &__icon {
+            opacity: 0;
+            animation-delay: 0.8s;
+        }
+
+        @include bp(md) {
+            font-size: to-rem(72);
+        }
     }
 }
 

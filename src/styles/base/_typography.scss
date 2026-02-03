@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'InclusiveSans';
+    src: url('fonts/InclusiveSans-VariableFont_wght.woff2') format('woff2'),
+        url('fonts/InclusiveSans-VariableFont_wght.woff') format('woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'InstrumentSerif-Italic';
+    src: url('fonts/InstrumentSerif-Italic.woff2') format('woff2'),
+        url('fonts/InstrumentSerif-Italic.woff') format('woff');
+    font-style: normal;
+}
+
+
+.italic {
+    font-family: 'InstrumentSerif-Italic', serif;
+    letter-spacing: normal;
+}

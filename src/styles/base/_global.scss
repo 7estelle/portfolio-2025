@@ -1,7 +1,9 @@
+@use "../shared" as *;
+
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: #0a0a0a;
-    color: #ffffff;
+    font-family: 'InclusiveSans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    color: $color-dark;
+    background: $color-bg;
     padding: 20px;
     min-height: 100vh;
 }
@@ -10,4 +12,14 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: to-rem(40);
+}
+
+.subtitle {
+    font-size: to-rem(36);
+    color: $color-secondary;
+    letter-spacing: -1px;
+    font-weight: 400;
 }
