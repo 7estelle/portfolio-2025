@@ -1,3 +1,5 @@
+@use "sass:map";
+
 /*
     General mobile-first breakpoint mixin
     Usage:
@@ -16,7 +18,7 @@ $breakpoints: (
 
 @mixin bp($key-or-size) {
     // resolve from map if key exists, otherwise use provided value
-    $size: if(map-has-key($breakpoints, $key-or-size), map-get($breakpoints, $key-or-size), $key-or-size);
+    $size: if(map.has-key($breakpoints, $key-or-size), map.get($breakpoints, $key-or-size), $key-or-size);
 
     @if $size == null {
         @warn "bp(): breakpoint `#{$key-or-size}` not found and no size provided.";
@@ -33,7 +35,7 @@ $breakpoints: (
      Usage: @include bp-until(md) { ... }  -> max-width: 767.98px (if md is 768px)
 */
 @mixin bp-until($key-or-size) {
-    $raw: if(map-has-key($breakpoints, $key-or-size), map-get($breakpoints, $key-or-size), $key-or-size);
+    $raw: if(map.has-key($breakpoints, $key-or-size), map.get($breakpoints, $key-or-size), $key-or-size);
 
     @if $raw == null {
         @warn "bp-until(): breakpoint `#{$key-or-size}` not found and no size provided.";
