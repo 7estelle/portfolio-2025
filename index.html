@@ -3,52 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>Estelle LAY - Portfolio</title>
 </head>
 <body>
     <header class="header">
-        <!-- Stickers Container -->
-        <div class="stickers">
-            <!-- Add your stickers here - Examples: -->
-            
-            <!-- Top left sticker - Stop motion effect -->
-            <div class="sticker sticker--medium sticker--top-left sticker--stop-motion">
-                <img src="public/img/test.jpg" alt="Decorative sticker">
-            </div>
-
-            <!-- Top right sticker - Spinning -->
-            <div class="sticker sticker--large sticker--top-right sticker--spin-slow">
-                <img src="public/img/test2.jpg" alt="Decorative sticker">
-            </div>
-
-            <!-- Bottom left sticker - Jitter effect -->
-            <div class="sticker sticker--small sticker--bottom-left sticker--jitter">
-                <img src="public/img/tree.png" alt="Decorative sticker">
-            </div>
-
-            <!-- Bottom right sticker - Wobble spin -->
-            <div class="sticker sticker--medium sticker--bottom-right sticker--wobble-spin">
-                <img src="public/img/cooking-sitting.png" alt="Decorative sticker">
-            </div>
-
-            <!-- Custom positioned sticker - Regular spin -->
-            <div class="sticker sticker--small sticker--spin" style="top: 20%; left: 15%;">
-                <img src="public/img/tree.png" alt="Decorative sticker">
-            </div>
-
-            <!-- Another custom positioned - Reverse spin -->
-            <div class="sticker sticker--medium sticker--spin-reverse" style="top: 70%; right: 15%;">
-                <img src="public/img/test.jpg" alt="Decorative sticker">
-            </div>
-        </div>
 
         <!-- Main Content -->
-        <!-- <div class="profile-image">YN</div> -->
         <h1 class="title">
             <span class="title__name italic">Estelle Lay's</span>
             <span class="title__label">digital archive</span>
             <img src="medias/flower.svg" alt="" class="title__icon sticker--spin-slow">
         </h1>
+
+        <!-- Scroll Down Indicator -->
+        <div class="scroll-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V19M12 19L19 12M12 19L5 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
     </header>
 
     <div class="container">
@@ -56,7 +28,6 @@
             <h2 class="subtitle">here’s some of my <span class="italic">projects</span></h2>
             <div class="bento-grid">
 
-            <!-- Project 1 -->
             <div class="bento-card">
                 <img src="medias/projects/on-time/on_time.gif" alt="" class="project-image">
                 <h2 class="card-title">ON TIME ⏰</h2>
@@ -88,7 +59,6 @@
             </div>
 
             <div class="bento-card">
-                <!-- <h2 class="card-title">ON TIME ⏰</h2> -->
                 <video class="project-image" autoplay muted loop controls playsinline poster="medias/projects/on-time/affiche.jpg">
                     <source src="medias/projects/on-time/teaser.mp4" type="video/mp4">
                     Your browser does not support the video tag.
@@ -143,17 +113,6 @@
         <div class="content-section">
             <h2 class="subtitle">let's<br><span class="italic">get in touch!</span></h2>
             <div class="bento-grid">
-                 <!-- About Card -->
-                <!-- <div class="bento-card large">
-                    <span class="card-icon">👋</span>
-                    <h2 class="card-title">About Me</h2>
-                    <p class="card-description">
-                        I'm a passionate designer and developer with a love for creating beautiful, 
-                        functional digital experiences. I specialize in web development and UI/UX design.
-                    </p>
-                </div> -->
-
-                <!-- Social Links Card -->
                 <div class="bento-card">
                     <span class="card-icon">🔗</span>
                     <h2 class="card-title">Connect</h2>
@@ -162,33 +121,6 @@
                         <a href="mailto:layestelle7@gmail.com" class="social-btn">Email: layestelle7@gmail.com</a>
                     </div>
                 </div>
-
-                
-                <!-- Skills Card -->
-                <!-- <div class="bento-card">
-                    <span class="card-icon">⚡</span>
-                    <h2 class="card-title">Skills</h2>
-                    <div class="skills-list">
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">React</span>
-                        <span class="skill-tag">CSS</span>
-                        <span class="skill-tag">Node.js</span>
-                        <span class="skill-tag">UI/UX</span>
-                        <span class="skill-tag">Figma</span>
-                    </div>
-                </div> -->
-
-                <!-- Experience Card -->
-                <!-- <div class="bento-card large">
-                    <span class="card-icon">💼</span>
-                    <h2 class="card-title">Experience</h2>
-                    <p class="card-description">
-                        <strong>Current Position</strong> - Company Name<br>
-                        2022 - Present<br><br>
-                        <strong>Previous Position</strong> - Another Company<br>
-                        2020 - 2022
-                    </p>
-                </div> -->
             </div>
         </div>
 

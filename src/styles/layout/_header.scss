@@ -45,6 +45,7 @@
         &__icon {
             opacity: 0;
             animation-delay: 0.8s;
+            width: to-rem(96);
         }
 
         @include bp(md) {
@@ -67,6 +68,24 @@
     animation-delay: 0.1s;
 }
 
+// Scroll Indicator
+.scroll-indicator {
+    position: absolute;
+    bottom: to-rem(40);
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards, bounce 2s ease-in-out infinite;
+    animation-delay: 1.2s, 2s;
+    color: $color-dark-3;
+    transition: color 0.3s ease;
+    
+    svg {
+        display: block;
+    }
+}
+
 // Fade in up animation
 @keyframes fadeInUp {
     from {
@@ -76,5 +95,15 @@
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+// Bounce animation for scroll indicator
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px);
     }
 }

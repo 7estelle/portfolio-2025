@@ -1,0 +1,9 @@
+@use "../shared" as *;
+
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid $color-dark-3;
+    color: $color-dark-3;
+}
