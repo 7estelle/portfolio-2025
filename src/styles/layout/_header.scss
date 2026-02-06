@@ -20,32 +20,40 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: to-rem(24);
         font-size: to-rem(48);
+
+        &__label {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: to-rem(48);
+
+            &__name {
+                font-weight: 400;
+                background: linear-gradient(135deg, $color-dark 0%, $color-secondary 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+                animation-delay: 0.5s;
+            }
+
+            &__text {
+                margin-top: to-rem(-10);
+                letter-spacing: -4px;
+                font-weight: 400;
+                opacity: 0;
+                animation: fadeInUp 0.8s ease-out forwards;
+                animation-delay: 0.8s;
+            }
+        }
         
         &__icon {
             opacity: 0;
             animation-delay: 0.3s;
             width: to-rem(96);
-        }
-    
-        &__name {
-            font-weight: 400;
-            background: linear-gradient(135deg, $color-dark 0%, $color-secondary 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 0.5s;
-        }
-
-        &__label {
-            margin-top: to-rem(-10);
-            letter-spacing: -4px;
-            font-weight: 400;
-            opacity: 0;
-            animation: fadeInUp 0.8s ease-out forwards;
-            animation-delay: 0.8s;
         }
 
 
@@ -76,6 +84,7 @@
     animation-delay: 1.2s;
     color: $color-dark-3;
     transition: color 0.3s ease;
+    cursor: pointer;
 
     svg {
         display: block;

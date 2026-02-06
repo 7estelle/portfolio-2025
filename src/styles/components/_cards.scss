@@ -23,6 +23,10 @@
         box-shadow: 0 10px 40px rgba(168, 177, 169, 0.2);
     }
 
+    &.small {
+        grid-column: 1;
+    }
+
     &.large {
         grid-column: span 2;
     }

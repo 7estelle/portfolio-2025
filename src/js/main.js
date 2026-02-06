@@ -74,3 +74,13 @@ function addSticker(options) {
 // Make functions globally available if needed
 window.addSticker = addSticker;
 window.restartAnimation = restartAnimation;
+
+// Smooth scroll to container on scroll-indicator click
+const scrollIndicator = document.querySelector('.scroll-indicator');
+const container = document.querySelector('.container');
+
+if (scrollIndicator && container) {
+    scrollIndicator.addEventListener('click', () => {
+        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+}
