@@ -179,6 +179,35 @@
     width: fit-content;
 }
 
+.carousel-track.portrait {
+    animation-duration: 30s;
+
+    .carousel-image {
+        width: 280px;
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel:has(.carousel-track.portrait) {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        touch-action: pan-x;
+
+        .carousel-image {
+            width: 240px;
+            height: 300px;
+        }
+    }
+
+    .carousel-track.portrait {
+        animation: none;
+    }
+
+    
+}
+
 .carousel-image {
     width: 280px;
     height: 180px;
